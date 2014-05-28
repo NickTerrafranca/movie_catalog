@@ -1,9 +1,14 @@
-<ul>
-  <% @actor_movies.each do |movie| %>
+
+<h2><%= @actor_movies[0]['name'] %></h2>
+<% @actor_movies.each do |movie| %>
   <li>
-    <a href="movies/index.erb">
-      <%= movie['name'] %>
+    <a href="movies/#{movie['id']">
+      <%= "Film Title: #{movie['title']}" %>
     </a>
-  <%end%>
   </li>
+  <li>
+    <%= "Character Name: #{movie['character']}" %>
+  </li>
+  <br>
+  <%end%>
 </ul>
