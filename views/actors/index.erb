@@ -1,9 +1,10 @@
 <ul>
   <% @actors.each do |actor| %>
   <li>
-    <a href="actors/show.erb">
-      <%= actor['name'] %>
+  <a href="<%= "/actors/#{actor["id"]}" %>">
+      <%= actor["name"] %>
     </a>
-  <%end%>
   </li>
+  <%end%>
+
 </ul>
