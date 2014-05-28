@@ -37,17 +37,16 @@ get '/actors/:id' do
 erb :'actors/show'
 end
 
-get '/movies/:id' do
-  id = params[:id]
-  query = "SELECT movies.id, movies.title, movies.year, movies.rating, genres.name, studios.name
+get '/movies' do
+  # id = params[:id]
+  query = "SELECT movies.id, movies.title, movies.year, movies.rating, genres.name as genre, studios.name
   FROM movies
   JOIN genres
   ON movies.genre_id = genres.id
   JOIN studios
   ON movies.studio_id = studios.id
-  WHERE movies.id = #{id}
-  ORDER BY
-  movies.title;"
+  ORDER BY movies.title
+  LIMIT 20;"
   @movies = db_connection do |conn|
     conn.exec(query)
   end
