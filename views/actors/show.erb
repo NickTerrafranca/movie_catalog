@@ -1,0 +1,9 @@
+<ul>
+  <% @actor_movies.each do |movie| %>
+  <li>
+    <a href="movies/index.erb">
+      <%= movie['name'] %>
+    </a>
+  <%end%>
+  </li>
+</ul>
