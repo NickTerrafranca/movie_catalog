@@ -39,7 +39,7 @@ end
 
 get '/actors/:id' do
   id = params[:id]
-  query = "SELECT movies.title, cast_members.character, actors.name, actors.id
+  query = "SELECT movies.title, movies.id AS movie_id, cast_members.character, actors.name, actors.id
     FROM movies
     JOIN cast_members
     ON cast_members.movie_id = movies.id
@@ -50,6 +50,7 @@ get '/actors/:id' do
   @actor_movies = db_connection do |conn|
     conn.exec_params(query, [id])
   end
+  # binding.pry
   erb :'actors/show'
 end
 
@@ -68,8 +69,9 @@ get '/movies/:id' do
     ON cast_members.actor_id = actors.id
     WHERE movies.id = $1;"
   @movie_details = db_connection do |conn|
-    conn.exec(query, [id])
+    conn.exec_params(query, [id])
   end
+  # binding.pry
   erb :'movies/show'
 end
 

@@ -1,3 +1,37 @@
+<h2>
+  <%= @movie_details[0]['title']%>
+</h2>
+<ul>
+  <li>
+    <%="Year: #{@movie_details[0]['year']}"%>
+  </li>
+  <li>
+    <%= "Rating: #{@movie_details[0]['rating']}"%>
+  </li>
+  <li>
+    <%= "Genre: #{@movie_details[0]['genre_name']}"%>
+  </li>
+  <li>
+    <%= "Studio: #{@movie_details[0]['studio_name']}"%>
+  </li>
+</ul>
+<h3>Cast</h3>
+<ul>
+
 <% @movie_details.each do |movie| %>
-<%= movie %>
+  <li>
+    <a href="<%= "/actors/#{movie["id"]}" %>">
+  <%= "Cast Member: #{movie['actor_name']}" %>
+  </a>
+  </li>
+  <li>
+    <%= "Character: #{movie['character']}" %>
+  </li>
+  <br>
 <% end %>
+</ul>
+
+
+<!--
+{"title"=>"13 Going on 30", "year"=>"2004", "synopsis"=>nil, "rating"=>"64", "genre_name"=>"Comedy", "studio_name"=>"Sony Pictures", "id"=>"529", "actor_name"=>"Jennifer Garner", "character"=>"Jenna Rink"}
+ -->

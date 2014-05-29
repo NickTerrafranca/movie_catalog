@@ -1,10 +1,10 @@
 <ul>
   <% @actors.each do |actor| %>
-  <li>
-  <a href="<%= "/actors/#{actor["id"]}" %>">
-      <%= actor["name"] %>
-    </a>
-  </li>
+    <li>
+      <a href="<%= "/actors/#{actor["id"]}" %>">
+        <%= actor["name"] %>
+      </a>
+    </li>
   <%end%>
 
 </ul>
