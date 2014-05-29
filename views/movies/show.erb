@@ -17,7 +17,6 @@
 </ul>
 <h3>Cast</h3>
 <ul>
-
 <% @movie_details.each do |movie| %>
   <li>
     <a href="<%= "/actors/#{movie["id"]}" %>">
@@ -30,8 +29,3 @@
   <br>
 <% end %>
 </ul>
-
-
-<!--
-{"title"=>"13 Going on 30", "year"=>"2004", "synopsis"=>nil, "rating"=>"64", "genre_name"=>"Comedy", "studio_name"=>"Sony Pictures", "id"=>"529", "actor_name"=>"Jennifer Garner", "character"=>"Jenna Rink"}
- -->

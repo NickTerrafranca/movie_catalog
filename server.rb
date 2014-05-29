@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'pg'
-require 'pry'
 
 def db_connection
   begin
@@ -13,9 +12,9 @@ end
 
 get '/actors' do
   query = 'SELECT actors.name, actors.id
-  FROM actors
-  ORDER BY actors.name
-  LIMIT 100;'
+    FROM actors
+    ORDER BY actors.name
+    LIMIT 100;'
   @actors = db_connection do |conn|
     conn.exec(query)
   end
@@ -50,7 +49,6 @@ get '/actors/:id' do
   @actor_movies = db_connection do |conn|
     conn.exec_params(query, [id])
   end
-  # binding.pry
   erb :'actors/show'
 end
 
@@ -71,17 +69,6 @@ get '/movies/:id' do
   @movie_details = db_connection do |conn|
     conn.exec_params(query, [id])
   end
-  # binding.pry
   erb :'movies/show'
 end
 
-
-# Visiting /movies/:id will show the details for the movie.
-# This page should contain information about the movie (including genre and studio)
-# as well as a list of all of the actors and their roles. Each actor name is a link to the
-# details page for that actor.
-
-# actors.name AS actor_name
-
-
-#{id}

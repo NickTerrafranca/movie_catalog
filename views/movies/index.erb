@@ -4,22 +4,16 @@
   <a href="<%= "/movies/#{movie["id"]}" %>">
   <%= "Title: #{movie['title']}" %>
   </a>
-
     <th>Genre</th>
     <th>Rating</th>
     <th>Year</th>
     <th>Studio</th>
-
     <tr>
       <td><%= movie['genre'] %></td>
       <td><%= movie['rating'] %></td>
       <td><%= movie['year'] %></td>
       <td><%= movie['name'] %></td>
     </tr>
-
   </table>
-
   <br>
-
 <%end%>
-<!-- {"title"=>"*batteries not included", "year"=>"1987", "rating"=>"64", "genre"=>"Kids & Family", "name"=>"Universal Pictures"} -->
